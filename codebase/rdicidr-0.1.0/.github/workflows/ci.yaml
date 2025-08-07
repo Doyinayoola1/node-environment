@@ -3,7 +3,7 @@ name: CI Pipeline
 on: 
   pull_request:
     branches:
-      - feature 
+      - main
 
 jobs:
   build:
@@ -61,10 +61,11 @@ jobs:
         fi
 
     - name: Build project
-      run: npm run build
+      run: |
         if ! npm run build; then
           echo "Build was unsuccessful"
           exit 1
         else
           echo "Build succeeded"
         fi
+
